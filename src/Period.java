@@ -1,20 +1,19 @@
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 
 public class Period {
-    private ZonedDateTime startDate;
-    private ZonedDateTime endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public Period(ZonedDateTime startDate, ZonedDateTime endDate) {
+    public Period(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public ZonedDateTime getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public ZonedDateTime getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 }

@@ -20,6 +20,8 @@ public class Main {
 
         LocalDate currentDate = LocalDate.now(ZoneId.of(selectedZone));
 
+        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of(selectedZone));
+
         int currentYear = currentDate.getYear();
 
         for (int month = 1; month <= 12; month++) {
@@ -28,11 +30,15 @@ public class Main {
             System.out.println("Month " + month + ": " + daysInMonth + " days");
         }
 
-        ZonedDateTime shiftStartTime = TimetableManager.getShiftStartTime(scanner);
+        System.out.println("Current date and time in selected zone : " + zonedDateTime);
+        System.out.println("Current date and time in local zone : " + LocalDateTime.now());
+
+        while (true) {
+        LocalTime shiftStartTime = TimetableManager.getShiftStartTime(scanner);
         if (shiftStartTime == null) {
             return;
         }
-        ZonedDateTime shiftEndTime = TimetableManager.getShiftEndTime(scanner);
+        LocalTime shiftEndTime = TimetableManager.getShiftEndTime(scanner);
         if (shiftEndTime == null) {
             return;
         }
@@ -46,12 +52,12 @@ public class Main {
 
         Duration workDayDuration = Duration.between(shiftStartTime, shiftEndTime);
 
-        while (true) {
-            ZonedDateTime startDate = TimetableManager.getStartDateOfWork(scanner);
+
+            LocalDate startDate = TimetableManager.getStartDateOfWork(scanner);
             if (startDate == null) {
                 break;
             }
-            ZonedDateTime endDate = TimetableManager.getEndDateOfWork(scanner);
+            LocalDate endDate = TimetableManager.getEndDateOfWork(scanner);
             if (endDate == null) {
                 break;
             }

@@ -1,7 +1,5 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
@@ -23,8 +21,8 @@ public class TimetableManager {
             String endDateStr = scanner.nextLine();
 
             try {
-                ZonedDateTime startDate = LocalDate.parse(startDateStr, vacationDateFormat);
-                ZonedDateTime endDate = LocalDate.parse(endDateStr, vacationDateFormat);
+                LocalDate startDate = LocalDate.parse(startDateStr, vacationDateFormat);
+                LocalDate endDate = LocalDate.parse(endDateStr, vacationDateFormat);
 
                 if (endDate.isBefore(startDate)) {
                     System.err.println("End date cannot be earlier than the start date. Please re-enter.");
@@ -40,15 +38,14 @@ public class TimetableManager {
         return vacationPeriods;
     }
 
-    public static ZonedDateTime getShiftStartTime(Scanner scanner) {
-        ZonedDateTime startTime = null;
+    public static LocalTime getShiftStartTime(Scanner scanner) {
+        LocalTime startTime = null;
         System.out.print("Enter the shift start time (HH:mm): ");
         do {
             String startTimeStr = scanner.nextLine();
 
             try {
-                LocalTime localTime = LocalTime.parse(startTimeStr, DateTimeFormatter.ofPattern("HH:mm"));
-                startTime = localTime.atZone(ZoneId.of(selectedZone)).toLocalTime();
+                startTime = LocalTime.parse(startTimeStr, DateTimeFormatter.ofPattern("HH:mm"));
                 return startTime;
             } catch (DateTimeParseException e) {
                 System.err.println("Error in time format. Use the format 'HH:mm'. Please re-enter.");
@@ -57,8 +54,8 @@ public class TimetableManager {
         return null;
     }
 
-    public static ZonedDateTime getShiftEndTime(Scanner scanner) {
-        ZonedDateTime endTime = null;
+    public static LocalTime getShiftEndTime(Scanner scanner) {
+        LocalTime endTime = null;
         System.out.print("Enter the shift end time (HH:mm): ");
         do {
             String endTimeStr = scanner.nextLine();
@@ -93,8 +90,8 @@ public class TimetableManager {
         return weekendDays;
     }
 
-    public static ZonedDateTime getStartDateOfWork(Scanner scanner) {
-        ZonedDateTime startDate = null;
+    public static LocalDate getStartDateOfWork(Scanner scanner) {
+        LocalDate startDate = null;
 
         while (startDate == null) {
             System.out.print("Enter the start date of work (dd.MM.yyyy) or 0 to finish input: ");
@@ -114,8 +111,8 @@ public class TimetableManager {
         return startDate;
     }
 
-    public static ZonedDateTime getEndDateOfWork(Scanner scanner) {
-        ZonedDateTime endDate = null;
+    public static LocalDate getEndDateOfWork(Scanner scanner) {
+        LocalDate endDate = null;
 
         while (endDate == null) {
             System.out.print("Enter the end date of work (dd.MM.yyyy): ");
