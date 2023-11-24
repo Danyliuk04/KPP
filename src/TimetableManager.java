@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
@@ -38,14 +40,15 @@ public class TimetableManager {
         return vacationPeriods;
     }
 
-    public static LocalTime getShiftStartTime(Scanner scanner) {
-        LocalTime startTime = null;
+    public static ZonedDateTime getShiftStartTime(Scanner scanner) {
+        ZonedDateTime startTime = null;
         System.out.print("Enter the shift start time (HH:mm): ");
         do {
             String startTimeStr = scanner.nextLine();
 
             try {
-                startTime = LocalTime.parse(startTimeStr, DateTimeFormatter.ofPattern("HH:mm"));
+                LocalTime localTime = LocalTime.parse(startTimeStr, DateTimeFormatter.ofPattern("HH:mm"));
+                startTime = localTime.atZone(ZoneId.of(selectedZone)).toLocalTime();
                 return startTime;
             } catch (DateTimeParseException e) {
                 System.err.println("Error in time format. Use the format 'HH:mm'. Please re-enter.");

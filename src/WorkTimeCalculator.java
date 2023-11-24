@@ -28,7 +28,8 @@ public class WorkTimeCalculator {
         return workHours;
     }
 
-
+//додати зони до визначення зону
+    // кількість днів кожного місяця для поточного року
     public static boolean isInVacationPeriod(LocalDate date, List<Period> vacationPeriods) {
         for (Period period : vacationPeriods) {
             if (!date.isBefore(period.getStartDate()) && !date.isAfter(period.getEndDate())) {

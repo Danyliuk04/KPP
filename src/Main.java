@@ -1,14 +1,33 @@
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the zone (e.g. Europe/Kyiv): ");
+        String selectedZone = scanner.nextLine();
+
+        if (!zoneIds.contains(selectedZone)) {
+            System.out.println("Wrong zone. The default system zone is used.");
+            selectedZone = ZoneId.systemDefault().toString();
+        }
+
+        LocalDate currentDate = LocalDate.now(ZoneId.of(selectedZone));
+
+        int currentYear = currentDate.getYear();
+
+        for (int month = 1; month <= 12; month++) {
+            YearMonth yearMonth = YearMonth.of(currentYear, month);
+            int daysInMonth = yearMonth.lengthOfMonth();
+            System.out.println("Month " + month + ": " + daysInMonth + " days");
+        }
+
         LocalTime shiftStartTime = TimetableManager.getShiftStartTime(scanner);
         if (shiftStartTime == null) {
             return;
