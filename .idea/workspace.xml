@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd81c81c-82b1-43a8-994d-2076993f97fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cd81c81c-82b1-43a8-994d-2076993f97fe" name="Changes" comment="make changes (in progress)">
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_4/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab_4/WorkTimeCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab_4/WorkTimeCalculator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TimetableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimetableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkTimeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkTimeCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +62,14 @@
       <option name="presentableId" value="Default" />
       <updated>1699394777101</updated>
     </task>
+    <task id="LOCAL-00001" summary="make changes (in progress)">
+      <created>1700823906701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700823906701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,5 +82,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="make changes (in progress)" />
+    <option name="LAST_COMMIT_MESSAGE" value="make changes (in progress)" />
   </component>
 </project>

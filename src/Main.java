@@ -28,11 +28,11 @@ public class Main {
             System.out.println("Month " + month + ": " + daysInMonth + " days");
         }
 
-        LocalTime shiftStartTime = TimetableManager.getShiftStartTime(scanner);
+        ZonedDateTime shiftStartTime = TimetableManager.getShiftStartTime(scanner);
         if (shiftStartTime == null) {
             return;
         }
-        LocalTime shiftEndTime = TimetableManager.getShiftEndTime(scanner);
+        ZonedDateTime shiftEndTime = TimetableManager.getShiftEndTime(scanner);
         if (shiftEndTime == null) {
             return;
         }
@@ -47,11 +47,11 @@ public class Main {
         Duration workDayDuration = Duration.between(shiftStartTime, shiftEndTime);
 
         while (true) {
-            LocalDate startDate = TimetableManager.getStartDateOfWork(scanner);
+            ZonedDateTime startDate = TimetableManager.getStartDateOfWork(scanner);
             if (startDate == null) {
                 break;
             }
-            LocalDate endDate = TimetableManager.getEndDateOfWork(scanner);
+            ZonedDateTime endDate = TimetableManager.getEndDateOfWork(scanner);
             if (endDate == null) {
                 break;
             }

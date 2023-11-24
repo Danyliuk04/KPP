@@ -23,8 +23,8 @@ public class TimetableManager {
             String endDateStr = scanner.nextLine();
 
             try {
-                LocalDate startDate = LocalDate.parse(startDateStr, vacationDateFormat);
-                LocalDate endDate = LocalDate.parse(endDateStr, vacationDateFormat);
+                ZonedDateTime startDate = LocalDate.parse(startDateStr, vacationDateFormat);
+                ZonedDateTime endDate = LocalDate.parse(endDateStr, vacationDateFormat);
 
                 if (endDate.isBefore(startDate)) {
                     System.err.println("End date cannot be earlier than the start date. Please re-enter.");
@@ -57,8 +57,8 @@ public class TimetableManager {
         return null;
     }
 
-    public static LocalTime getShiftEndTime(Scanner scanner) {
-        LocalTime endTime = null;
+    public static ZonedDateTime getShiftEndTime(Scanner scanner) {
+        ZonedDateTime endTime = null;
         System.out.print("Enter the shift end time (HH:mm): ");
         do {
             String endTimeStr = scanner.nextLine();
@@ -93,8 +93,8 @@ public class TimetableManager {
         return weekendDays;
     }
 
-    public static LocalDate getStartDateOfWork(Scanner scanner) {
-        LocalDate startDate = null;
+    public static ZonedDateTime getStartDateOfWork(Scanner scanner) {
+        ZonedDateTime startDate = null;
 
         while (startDate == null) {
             System.out.print("Enter the start date of work (dd.MM.yyyy) or 0 to finish input: ");
@@ -114,8 +114,8 @@ public class TimetableManager {
         return startDate;
     }
 
-    public static LocalDate getEndDateOfWork(Scanner scanner) {
-        LocalDate endDate = null;
+    public static ZonedDateTime getEndDateOfWork(Scanner scanner) {
+        ZonedDateTime endDate = null;
 
         while (endDate == null) {
             System.out.print("Enter the end date of work (dd.MM.yyyy): ");
